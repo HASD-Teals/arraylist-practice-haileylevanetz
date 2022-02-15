@@ -79,9 +79,11 @@ public class ArrayListPractice {
         }
     }
     public static void doubleList(List <String> hahaFunny){
-        for(int i=0; i<hahaFunny.size(); i++){
+        int size= hahaFunny.size();
+        for(int i=0; i< size*2; i++){
             String temp= hahaFunny.get(i);
             hahaFunny.add(i,temp);
+            i++;
         }
     }
 }
