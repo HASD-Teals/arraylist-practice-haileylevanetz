@@ -2,19 +2,17 @@ import java.util.ArrayList;
 import java.util.List;
 public class ArrayListPractice {
     public static void main(String[] args) throws Exception {
-        //example();
         List <String> hahaFunny = new ArrayList <String>();
         fillList(hahaFunny);
         System.out.println(hahaFunny);
-        removeEvenLength(hahaFunny);
+        doubleList(hahaFunny);
         System.out.println(hahaFunny);
-        fillList(hahaFunny);
-        averageVowels(hahaFunny);
+        removeDuplicates(hahaFunny);
+        System.out.println(hahaFunny);
         
     }  
 
-    public static void example(){
-        List <String> myList = new ArrayList <String>();
+    public static void example(List <String> myList){
         System.out.println(myList);
         myList.add("Ant");
         myList.add("Bear");
@@ -23,6 +21,7 @@ public class ArrayListPractice {
         myList.add(2, "Cat");
         System.out.println(myList);
         myList.set(2, "Crab");
+        myList.add("Dog");
         System.out.println(myList);
         myList.remove(1);
         System.out.println(myList);
@@ -31,6 +30,7 @@ public class ArrayListPractice {
         int lengthAnimalName=(myList.get(1)).toString().length();
         System.out.println(lengthAnimalName);
     }
+   
     public static void fillList (List <String> hahaFunny){
         hahaFunny.add("I");
         hahaFunny.add("just");
@@ -55,16 +55,33 @@ public class ArrayListPractice {
         }
     }
     public static void averageVowels(List <String> hahaFunny){
-        int numVowel=0;
+        double numVowel=0;
         for(int i =0; i<hahaFunny.size(); i++){
            String word= hahaFunny.get(i);
            int k= word.length();
            for(int j =0; j<k; j++){
-               if(word.charAt(j) == 'a' || word.charAt(j) == 'e' || word.charAt(j) =='i' || word.charAt(j) == 'o' || word.charAt(j) == 'u'){
+               String temp= word.toLowerCase();
+               if(temp.charAt(j) == 'a' || temp.charAt(j) == 'e' || temp.charAt(j) =='i' || temp.charAt(j) == 'o' || temp.charAt(j) == 'u'){
                    numVowel++;
                }
            }
         }
-        System.out.println("The average amount of vowels per word is "+ numVowel);
+        double average = (numVowel/(hahaFunny.size()));
+        System.out.println("The average amount of vowels per word is "+ average );
+    }
+    public static void removeDuplicates(List <String> hahaFunny){
+        for(int i=0; i<hahaFunny.size(); i++){
+            for(int j=i+1; j<hahaFunny.size(); j++){
+                if(hahaFunny.get(i).equals(hahaFunny.get(j))){
+                    hahaFunny.remove(i);
+                }
+            }
+        }
+    }
+    public static void doubleList(List <String> hahaFunny){
+        for(int i=0; i<hahaFunny.size(); i++){
+            String temp= hahaFunny.get(i);
+            hahaFunny.add(i,temp);
+        }
     }
 }
