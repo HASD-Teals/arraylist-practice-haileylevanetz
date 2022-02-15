@@ -8,6 +8,9 @@ public class ArrayListPractice {
         System.out.println(hahaFunny);
         removeEvenLength(hahaFunny);
         System.out.println(hahaFunny);
+        fillList(hahaFunny);
+        averageVowels(hahaFunny);
+        
     }  
 
     public static void example(){
@@ -54,13 +57,14 @@ public class ArrayListPractice {
     public static void averageVowels(List <String> hahaFunny){
         int numVowel=0;
         for(int i =0; i<hahaFunny.size(); i++){
-           int k= hahaFunny.get(i).length();
            String word= hahaFunny.get(i);
+           int k= word.length();
            for(int j =0; j<k; j++){
-               if(word.charAt(i) == 'a' || word.charAt(i) == 'e' || word.charAt(i) =='i' || word.charAt(i) == 'o' || word.charAt(i) == 'u'){
+               if(word.charAt(j) == 'a' || word.charAt(j) == 'e' || word.charAt(j) =='i' || word.charAt(j) == 'o' || word.charAt(j) == 'u'){
                    numVowel++;
                }
            }
         }
+        System.out.println("The average amount of vowels per word is "+ numVowel);
     }
 }
